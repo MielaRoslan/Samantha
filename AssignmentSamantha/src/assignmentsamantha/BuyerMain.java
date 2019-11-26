@@ -26,27 +26,30 @@ class Buyer {
     public double insertMoney() {
         System.out.println("Insert money : ");
         Scanner s= new Scanner(System.in);
-        double money=s.nextDouble();
+        money=s.nextDouble();
         return money;
     }
     
     public void displayCatalogue(){
         
-        if( insertMoney()< 1.00){
+        if( money < 1.00){
             System.out.println("Amount is not sufficient");
         }
-        else if( insertMoney()>= 1.00 && insertMoney() < 1.50){
+        if( money >= 1.00 && money < 1.50){
+            System.out.println( "Select your drink:");
             System.out.println( "[5] SkyJuice	 	– RM 1.00\n");
         }
-        else if( insertMoney()>= 1.50 && insertMoney() <= 2.00 ){
+        if( money>= 1.50 && money <= 2.00 ){
+            System.out.println( "Select your drink:");
             System.out.println( "[1] 99plus 		– RM 1.50\n" +
                                 "[2] Popci 		– RM 1.50\n" +
                                 "[4] Pikapoo 		– RM 1.50\n" +
                                 "[5] SkyJuice	 	– RM 1.00\n" +
                                 "[7] Spright 		– RM 1.50\n" );
         }
-        else if( money >= 2.00 && money < 2.50){
-            System.out.println("[1] 99plus 		– RM 1.50\n" +
+        if( money >= 2.00 && this.insertMoney() < 2.50){
+            System.out.println( "Select your drink:");
+            System.out.println( "[1] 99plus 		– RM 1.50\n" +
                                 "[2] Popci 		– RM 1.50\n" +
                                 "[3] Hell&Sky 		– RM 2.00\n" +
                                 "[4] Pikapoo 		– RM 1.50\n" +
@@ -54,8 +57,9 @@ class Buyer {
                                 "[7] Spright 		– RM 1.50\n" +
                                 "[8] LegalCaffeine 	– RM 2.00");
         }
-        else if( money >= 2.50){
-            System.out.println("[1] 99plus 		– RM 1.50\n" +
+        if( money >= 2.50){
+            System.out.println( "Select your drink:");
+            System.out.println( "[1] 99plus 		– RM 1.50\n" +
                                 "[2] Popci 		– RM 1.50\n" +
                                 "[3] Hell&Sky 		– RM 2.00\n" +
                                 "[4] Pikapoo 		– RM 1.50\n" +
