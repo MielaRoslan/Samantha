@@ -38,10 +38,10 @@ class Buyer {
         return tail == 0;
          }
        
-       public void addToCart(String s){
-        // enqueue if empty
+       public void addToCart(String item){
+        
         if(isEmpty()){
-            arr[head] = s;
+            arr[head] = item;
             tail++;
          }}
         
