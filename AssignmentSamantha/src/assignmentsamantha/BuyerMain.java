@@ -19,7 +19,7 @@ class Buyer {
         head = 0;
         tail = 0;
         arr = new String[maxSize];
-    }
+    }s
     public void insertMoney() {
         System.out.println("Insert money : ");
         Scanner s= new Scanner(System.in);
