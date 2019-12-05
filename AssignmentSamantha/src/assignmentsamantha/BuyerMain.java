@@ -13,7 +13,9 @@ class Buyer {
     int head;
     int tail;
     String arr[];
-    double money;
+    double money=0;
+    Scanner s= new Scanner(System.in);
+    double totalMoney=0;
     
     
 //    public Buyer(String item, int n){
@@ -23,23 +25,38 @@ class Buyer {
 //        arr = new String[maxSize];
 //    }
     
-    public double insertMoney() {
+    public void insertMoney() {
         System.out.println("Insert money : ");
-        Scanner s= new Scanner(System.in);
         money=s.nextDouble();
-        return money;
+        
     }
     
     public void displayCatalogue(){
         
-        if( money < 1.00){
-            System.out.println("Amount is not sufficient");
+        while(money<1.00){
+                System.out.println("Amount is not sufficient");
+                System.out.println("Do you want to proceed?[yes/no]");
+                String answer=s.next();
+             if(answer.equals("yes")){
+                double temp = money;
+                insertMoney();
+               
+                totalMoney=temp+money;
+                System.out.println("Total money: "+totalMoney);
+                totalMoney();
+            }
+            else{
+                System.out.println("Thank You!");
+            }
+             break;
         }
+        
+    
         if( money >= 1.00 && money < 1.50){
             System.out.println( "Select your drink:");
             System.out.println( "[5] SkyJuice	 	– RM 1.00\n");
         }
-        if( money>= 1.50 && money <= 2.00 ){
+        if( money>= 1.50 && money < 2.00 ){
             System.out.println( "Select your drink:");
             System.out.println( "[1] 99plus 		– RM 1.50\n" +
                                 "[2] Popci 		– RM 1.50\n" +
@@ -47,7 +64,7 @@ class Buyer {
                                 "[5] SkyJuice	 	– RM 1.00\n" +
                                 "[7] Spright 		– RM 1.50\n" );
         }
-        if( money >= 2.00 && this.insertMoney() < 2.50){
+        if( money >= 2.00 && money < 2.50){
             System.out.println( "Select your drink:");
             System.out.println( "[1] 99plus 		– RM 1.50\n" +
                                 "[2] Popci 		– RM 1.50\n" +
@@ -70,6 +87,43 @@ class Buyer {
         }
         
     }
+    
+    public void totalMoney(){
+        if( totalMoney >= 1.00 && totalMoney < 1.50){
+            System.out.println( "Select your drink:");
+            System.out.println( "[5] SkyJuice	 	– RM 1.00\n");
+        }
+        if( totalMoney>= 1.50 && totalMoney < 2.00 ){
+            System.out.println( "Select your drink:");
+            System.out.println( "[1] 99plus 		– RM 1.50\n" +
+                                "[2] Popci 		– RM 1.50\n" +
+                                "[4] Pikapoo 		– RM 1.50\n" +
+                                "[5] SkyJuice	 	– RM 1.00\n" +
+                                "[7] Spright 		– RM 1.50\n" );
+        }
+        if( totalMoney >= 2.00 && totalMoney < 2.50){
+            System.out.println( "Select your drink:");
+            System.out.println( "[1] 99plus 		– RM 1.50\n" +
+                                "[2] Popci 		– RM 1.50\n" +
+                                "[3] Hell&Sky 		– RM 2.00\n" +
+                                "[4] Pikapoo 		– RM 1.50\n" +
+                                "[5] SkyJuice	 	– RM 1.00\n" +
+                                "[7] Spright 		– RM 1.50\n" +
+                                "[8] LegalCaffeine 	– RM 2.00");
+        }
+        if( totalMoney >= 2.50){
+            System.out.println( "Select your drink:");
+            System.out.println( "[1] 99plus 		– RM 1.50\n" +
+                                "[2] Popci 		– RM 1.50\n" +
+                                "[3] Hell&Sky 		– RM 2.00\n" +
+                                "[4] Pikapoo 		– RM 1.50\n" +
+                                "[5] SkyJuice	 	– RM 1.00\n" +
+                                "[6] MAILO 		– RM 2.50\n" +
+                                "[7] Spright 		– RM 1.50\n" +
+                                "[8] LegalCaffeine 	– RM 2.00"     );
+        }
+    }
+        
     
     public void calculate(){
         
