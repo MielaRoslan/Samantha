@@ -13,41 +13,36 @@ import java.util.Scanner;
  */
 public class Cart1 {
     
-    public Node tail;
-     Scanner s= new Scanner(System.in);
-     
-    Cart1(){
-        tail=null;
-    }
+    public Node head;
+    //public Node drink;
+     //Scanner s= new Scanner(System.in);
     
-    public void input(){
-       
-        System.out.println("Which drink? ");
-        int drink = s.nextInt();
-        System.out.println("Quantity: ");
-        int quantity=s.nextInt();
-        
-    }
     //loop infinite!!!!!!!
-    public void addNode(){
-        Node node= new Node();
-        System.out.println("Nak berapa jenis: ");
-        int berapa=s.nextInt();
-        for(int i=1; i<=berapa; i++){
-         input();
-        node.next=tail;
-        tail=node;   
-        }
+    public void addNode(int drink, int  quantity){
+        //int drink, quantity;
+        Node node = new Node(drink, quantity);
         
+        Node currentNode = head;
+        
+        if(head == null){
+            head = node;
+            
+        }else{
+            while(currentNode.next != null){
+                currentNode = currentNode.next;
+            }
+            
+            currentNode.next = node;
+ 
+        }
     }
     
     public void display(){
-        Node node=tail;
-        while(node!=null){
+        Node node = head;
+        
+        while(node != null){
             node.display();
-            node=node.next;
-            break;     
+            node = node.next;
         }
-        System.out.println();
     }
 }
