@@ -5,34 +5,44 @@
  */
 package assignmentsamantha;
 
-/**
- *
- * @author USER
- */
+import java.util.Scanner;
+
 public class Node {
-    public int drink;
+
+    int drink;
+    //int drinkDiscard;
     int quantity;
-    double totalPrice;
-    Node next;
-    
-    Node(){
-        this.drink=drink;
-        this.quantity=quantity;
-        this.totalPrice=totalPrice;
-    }
-    
-    public void display(){ 
-        System.out.println(drink+" quantity: "+ quantity);
-    }
-    
-    public static void main (String[] args){
-        Cart1 cart= new Cart1();
-        cart.addNode();
-//        cart.addNode();
-        cart.display();
-        
-}
+    double totalprice;
+    Node next = null;
 
-    
-}
+    Node(int drink, int quantity) {
+        this.drink = drink;
+        this.quantity = quantity;
+        this.totalprice = totalprice;
+    }
 
+    public int getDrink(){
+        return drink;
+    }
+    public void display() {
+        if (drink == 1) {
+            totalprice = 1.5 * quantity;
+        } else if (drink == 2) {
+            totalprice = 1.5 * quantity;
+        } else if (drink == 3) {
+            totalprice = 2.0 * quantity;
+        } else if (drink == 4) {
+            totalprice = 1.5 * quantity;
+        } else if (drink == 5) {
+            totalprice = 1.0 * quantity;
+        } else if (drink == 6) {
+            totalprice = 2.5 * quantity;
+        } else if (drink == 7) {
+            totalprice = 1.5 * quantity;
+        } else if (drink == 8) {
+            totalprice = 2.0 * quantity;
+        }
+        System.out.println("drink: " + drink + " quantity: " + quantity +  " Total Price: " + totalprice);
+    }
+
+}

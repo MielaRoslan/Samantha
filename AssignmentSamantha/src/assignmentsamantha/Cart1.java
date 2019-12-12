@@ -12,35 +12,79 @@ import java.util.Scanner;
  * @author USER
  */
 public class Cart1 {
-    
+
     public Node head;
-    //public Node drink;
-     //Scanner s= new Scanner(System.in);
-    
-    //loop infinite!!!!!!!
-    public void addNode(int drink, int  quantity){
+
+    public void addNode(int drink, int quantity) {
         //int drink, quantity;
         Node node = new Node(drink, quantity);
-        
+
         Node currentNode = head;
-        
-        if(head == null){
+        if (head == null) {
             head = node;
-            
-        }else{
-            while(currentNode.next != null){
+
+        } else {
+            while (currentNode.next != null) {
                 currentNode = currentNode.next;
+
             }
-            
+
             currentNode.next = node;
- 
+
         }
     }
     
-    public void display(){
-        Node node = head;
+    public Node removeNode(int drinkDiscard){
+        Node previous = head;
+        Node current = head;
         
-        while(node != null){
+        while(current != null){
+            
+            if(current.getDrink() == drinkDiscard){
+                //remove node
+                System.out.println("Drink found... removing..");
+                previous.next = current.next;
+                System.out.println("drink no" + current.getDrink() + " has been removed");
+                return current;
+            }
+            else{
+                if(current == head){
+                    current = current.next;
+                }
+                else{
+                    previous = current;
+                    current = current.next;                    
+                } 
+            }
+        }
+        
+        System.out.println("No drink found");
+        return null;
+        /*
+        while(current.getDrink() != drinkDiscard){
+            if(current.next==null){
+                System.out.println("Drink not order");
+                return null;
+            }
+            else{
+                previous=current;
+                current=current.next;
+            }
+            
+            if(current==head){
+                head=head.next;
+            }
+            else{
+                previous.next=current.next;                
+            }
+        }
+        return current;*/
+    }
+
+    public void display() {
+        Node node = head;
+
+        while (node != null) {
             node.display();
             node = node.next;
         }
