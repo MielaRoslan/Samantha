@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Node {
 
     int drink;
-    //int drinkDiscard;
     int quantity;
     double totalprice;
     Node next = null;

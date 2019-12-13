@@ -14,6 +14,5 @@ public class Timer {
             thread.sleep(1000);
             System.out.println(i);
         }
-   
     }
 }

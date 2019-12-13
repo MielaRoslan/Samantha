@@ -19,13 +19,7 @@ public class VendorMain {
  }
  
  public void generateTransaction(){
-     try {
-   PrintWriter outputStream = new PrintWriter(new FileOutputStream("data.txt"));
-   outputStream.println("aina shifaa");
-    outputStream.close();
-} catch (IOException e) {
-   System.out.println("Problem with file output"); 
-}
+    
 //     PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
 //writer.println("The first line");
 //writer.println("The second line");

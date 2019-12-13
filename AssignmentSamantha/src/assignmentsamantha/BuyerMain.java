@@ -7,9 +7,8 @@ package assignmentsamantha;
 
 import java.util.Scanner;
 
-
 class Buyer {
-    
+
     int head;
     int tail;
     String arr[];
@@ -17,17 +16,10 @@ class Buyer {
     Scanner s = new Scanner(System.in);
     double totalMoney = 0;
 
-//    public Buyer(String item, int n){
-//        maxSize = n;
-//        head = 0;
-//        tail = 0;
-//        arr = new String[maxSize];
-//    }
     public void insertMoney() {
         System.out.println("Insert money : ");
         money = s.nextDouble();
         displayCatalogue();
-
     }
 
     public void notEnoughMoney() {
@@ -51,143 +43,131 @@ class Buyer {
     }
 
     public void displayCatalogue() {
-
         if (money < 1.00 && totalMoney < 1.00) {
             notEnoughMoney();
-
         } else {
-
             if (money >= 1.00 && money < 1.50) {
                 System.out.println("Select your drink:");
-                System.out.println("[5] SkyJuice	 	 RM 1.00\n");
+                System.out.println("[5] SkyJuice\t\tRM 1.00\n");
             }
-
             if (money >= 1.50 && money < 2.00) {
                 System.out.println("Select your drink:");
-                System.out.println("[1] 99plus                   RM 1.50\n"
-                        + "[2] Popci 		         RM 1.50\n"
-                        + "[4] Pikapoo 		 RM 1.50\n"
-                        + "[5] SkyJuice	 	 RM 1.00\n"
-                        + "[7] Spright 		 RM 1.50\n");
+                System.out.println("[1] 99plus\t\tRM 1.50\n"
+                        + "[2] Popci\t\tRM 1.50\n"
+                        + "[4] Pikapoo\t\tRM 1.50\n"
+                        + "[5] SkyJuice\t\tRM 1.00\n"
+                        + "[7] Spright\t\tRM 1.50\n");
             }
-
             if (money >= 2.00 && money < 2.50) {
                 System.out.println("Select your drink:");
-                System.out.println("[1] 99plus                   RM 1.50\n"
-                        + "[2] Popci                    RM 1.50\n"
-                        + "[3] Hell&Sky 		 RM 2.00\n"
-                        + "[4] Pikapoo 		 RM 1.50\n"
-                        + "[5] SkyJuice	 	 RM 1.00\n"
-                        + "[7] Spright 		 RM 1.50\n"
-                        + "[8] LegalCaffeine            RM 2.00");
+                System.out.println("[1] 99plus\t\tRM 1.50\n"
+                        + "[2] Popci\t\tRM 1.50\n"
+                        + "[3] Hell&Sky\t\tRM 2.00\n"
+                        + "[4] Pikapoo\t\tRM 1.50\n"
+                        + "[5] SkyJuice\t\tRM 1.00\n"
+                        + "[7] Spright\t\tRM 1.50\n"
+                        + "[8] LegalCaffeine\tRM 2.00");
             }
-
             if (money >= 2.50) {
                 System.out.println("Select your drink:");
-                System.out.println("[1] 99plus                  RM 1.50\n"
-                        + "[2] Popci                   RM 1.50\n"
-                        + "[3] Hell&Sky                RM 2.00\n"
-                        + "[4] Pikapoo                 RM 1.50\n"
-                        + "[5] SkyJuice                RM 1.00\n"
-                        + "[6] MAILO                   RM 2.50\n"
-                        + "[7] Spright                 RM 1.50\n"
-                        + "[8] LegalCaffeine           RM 2.00");
+                System.out.println("[1] 99plus\t\tRM 1.50\n"
+                        + "[2] Popci\t\tRM 1.50\n"
+                        + "[3] Hell&Sky\t\tRM 2.00\n"
+                        + "[4] Pikapoo\t\tRM 1.50\n"
+                        + "[5] SkyJuice\t\tRM 1.00\n"
+                        + "[6] MAILO\t\tRM 2.50\n"
+                        + "[7] Spright\t\tRM 1.50\n"
+                        + "[8] LegalCaffeine\tRM 2.00");
             }
         }
-
     }
 
     public void totalMoney() {
         if (totalMoney >= 1.00 && totalMoney < 1.50) {
             System.out.println("Select your drink:");
-            System.out.println("[5] SkyJuice	 	 RM 1.00\n");
+            System.out.println("[5] SkyJuice\t\tRM 1.00\n");
         }
         if (totalMoney >= 1.50 && totalMoney < 2.00) {
             System.out.println("Select your drink:");
-            System.out.println("[1] 99plus 		 RM 1.50\n"
-                    + "[2] Popci 		 RM 1.50\n"
-                    + "[4] Pikapoo 		 RM 1.50\n"
-                    + "[5] SkyJuice	 	 RM 1.00\n"
-                    + "[7] Spright 		 RM 1.50\n");
+            System.out.println("[1] 99plus\t\tRM 1.50\n"
+                    + "[2] Popci\t\tRM 1.50\n"
+                    + "[4] Pikapoo\t\tRM 1.50\n"
+                    + "[5] SkyJuice\t\tRM 1.00\n"
+                    + "[7] Spright\t\tRM 1.50\n");
         }
         if (totalMoney >= 2.00 && totalMoney < 2.50) {
             System.out.println("Select your drink:");
-            System.out.println("[1] 99plus 		 RM 1.50\n"
-                    + "[2] Popci 		 RM 1.50\n"
-                    + "[3] Hell&Sky 		 RM 2.00\n"
-                    + "[4] Pikapoo 		 RM 1.50\n"
-                    + "[5] SkyJuice	 	 RM 1.00\n"
-                    + "[7] Spright 		 RM 1.50\n"
-                    + "[8] LegalCaffeine 	 RM 2.00");
+            System.out.println("[1] 99plus\t\tRM 1.50\n"
+                    + "[2] Popci\t\tRM 1.50\n"
+                    + "[3] Hell&Sky\t\tRM 2.00\n"
+                    + "[4] Pikapoo\t\tRM 1.50\n"
+                    + "[5] SkyJuice\t\tRM 1.00\n"
+                    + "[7] Spright\t\tRM 1.50\n"
+                    + "[8] LegalCaffeine\tRM 2.00");
         }
         if (totalMoney >= 2.50) {
             System.out.println("Select your drink:");
-            System.out.println(     "[1] 99plus               RM 1.50\n"
-                                +   "[2] Popci                RM 1.50\n"
-                                +   "[3] Hell&Sky             RM 2.00\n"
-                                +   "[4] Pikapoo              RM 1.50\n"
-                                +   "[5] SkyJuice             RM 1.00\n"
-                                +   "[6] MAILO                RM 2.50\n"
-                                +   "[7] Spright              RM 1.50\n"
-                                +   "[8] LegalCaffeine        RM 2.00");
+            System.out.println("[1] 99plus\t\tRM 1.50\n"
+                    + "[2] Popci\t\tRM 1.50\n"
+                    + "[3] Hell&Sky\t\tRM 2.00\n"
+                    + "[4] Pikapoo\t\tRM 1.50\n"
+                    + "[5] SkyJuice\t\tRM 1.00\n"
+                    + "[6] MAILO\t\tRM 2.50\n"
+                    + "[7] Spright\t\tRM 1.50\n"
+                    + "[8] LegalCaffeine\tRM 2.00");
         }
     }
-
+    
     public void confirmTransaction(Cart1 cart) {
         System.out.println("Would you like to confirm your transaction? [yes/no]");
         String answer = s.next();
         if (answer.equals("yes")) {
             System.out.println("Thank you! Have a nice day~");
         } else {
-//            System.out.println("Would you want to cancel your transaction?");
             cancelTransaction(cart);
         }
     }
+    
+    public void balance(){
+        
+        int balance=money-totalPrice;
+//        if balance cukup untuk beli drink yang seterusnya no need to insertMoney()
+//        else 
+//        insertMoney();
+//        totalMoney= insertMoney()+balance;
+//        
+    }
 
     public void cancelTransaction(Cart1 cart) {
-        //Cart1 cart = new Cart1();
         System.out.println("cancel your transaction?[yes/no]");
         String answer = s.next();
         if (answer.equalsIgnoreCase("yes")) {
             System.out.println("Which drink do you wish to discard?");
             int remove = s.nextInt();
             cart.removeNode(remove);
-            
+
             System.out.println("==========================");
             System.out.println("");
             cart.display();
             System.out.println("");
             System.out.println("Thank you! Have a nice day~");
-        } else {
+        } else {   //--> ni untuk tambah lagi air
             insertMoney();
+            Counter c1 = new Counter();
+            c1.returnNum();
+//            cart.display();
         }
     }
 }
 
 public class BuyerMain {
-
     public static void main(String[] args) {
         Buyer s = new Buyer();
         s.insertMoney();
-
         Cart1 cart = new Cart1();
-        Scanner a = new Scanner(System.in);
-        System.out.println("Nak berapa jenis: ");
-        int berapa = a.nextInt();
-        for (int i = 1; i <= berapa; i++) {
-
-            System.out.println("drink: ");
-            int drink = a.nextInt();
-            System.out.println("quantity: ");
-            int quantity = a.nextInt();
-
-            cart.addNode(drink, quantity);
-
-        }
-
-        cart.display();
+        Counter c1 = new Counter();
+        c1.returnNum();
+//        cart.display();
         s.confirmTransaction(cart);
-
     }
-
 }
