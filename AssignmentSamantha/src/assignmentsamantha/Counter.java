@@ -1,28 +1,71 @@
 package assignmentsamantha;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Counter {
 
-    Counter() {
-        //this is constructor
-    }
-
-    int maxSize = 20;
+     int maxSize = 20;
 
     Scanner s = new Scanner(System.in);
     Scanner a = new Scanner(System.in);
-    int plus = 20;
-    int popci = 20;
-    int hell = 20;
-    int pikapoo = 20;
-    int sky = 20;
-    int mailo = 20;
-    int spright = 20;
-    int legal = 20;
+    int plus;
+    int popci;
+    int hell;
+    int pikapoo;
+    int sky ;
+    int mailo;
+    int spright;
+    int legal;
+    
+    Counter() {
+        try {
+            //this is constructor
+            // code ni jgn delete
+            // format dekat txt file jgn ubah
+            BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+            String line = "";
+            
+            while((line = br.readLine()) != null){
+                String[] word = line.split(" ");
+                
+                if(word[0].equals("99plus:")){
+                    plus = Integer.parseInt(word[1]);
+                }
+                else if(word[0].equals("Popci:")){
+                    popci = Integer.parseInt(word[1]);
+                }
+                else if(word[0].equals("Hell&Sky:")){
+                    hell = Integer.parseInt(word[1]);
+                }
+                else if(word[0].equals("Pikapoo:")){
+                    pikapoo = Integer.parseInt(word[1]);
+                }
+                else if(word[0].equals("SkyJuice:")){
+                    sky = Integer.parseInt(word[1]);
+                }else if(word[0].equals("MAILO:")){
+                    mailo = Integer.parseInt(word[1]);
+                }else if(word[0].equals("Spright:")){
+                    spright = Integer.parseInt(word[1]);
+                }else if(word[0].equals("LegalCaffeine:")){
+                    legal = Integer.parseInt(word[1]);
+                }
+            }
+            
+                 
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Counter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Counter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void counter() {
         Cart1 cart = new Cart1();
