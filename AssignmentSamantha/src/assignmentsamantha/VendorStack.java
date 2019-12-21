@@ -8,11 +8,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class VendorStack implements BuyerMain{
+public class VendorStack extends BuyerMain{
 //
 //    public static void main(String[] args) {
 //
@@ -129,7 +131,6 @@ public class VendorStack implements BuyerMain{
             }
             try {
                 PrintWriter outputStream = new PrintWriter(new FileOutputStream("data.txt"));
-                outputStream.println("izzan");
                 outputStream.close();
             } catch (IOException e) {
                 System.out.println("Problem with file output");
@@ -383,6 +384,15 @@ public class VendorStack implements BuyerMain{
     }
     
     
+    
+    public void transactionHistory(){
+        Date date = new Date();
+        long time = date.getTime();
+        System.out.println("Time in Milliseconds: " + time);
+
+        Timestamp ts = new Timestamp(time);
+        System.out.println("Current Time Stamp: " + ts);
+    }
     
     
     
