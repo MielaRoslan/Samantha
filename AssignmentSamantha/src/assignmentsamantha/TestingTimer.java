@@ -6,6 +6,9 @@ import java.util.TimerTask;
 
 public class TestingTimer {
     
+    //ni masuk dalam transaction
+    //if secondPassed==30{
+    // transaction cancel}
     int secondsPassed = 0;
     
     Timer myTimer = new Timer();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package assignmentsamantha;
 
 import java.util.Scanner;
@@ -117,7 +112,7 @@ class Buyer {
                     + "[8] LegalCaffeine\tRM 2.00");
         }
     }
-    
+
     public void confirmTransaction(Cart1 cart) {
         System.out.println("Would you like to confirm your transaction? [yes/no]");
         String answer = s.next();
@@ -127,10 +122,10 @@ class Buyer {
             cancelTransaction(cart);
         }
     }
-    
-    public void balance(){
-        
-        int balance=money-totalPrice;
+
+    public void balance() {
+
+        int balance = money - totalPrice;
 //        if balance cukup untuk beli drink yang seterusnya no need to insertMoney()
 //        else 
 //        insertMoney();
@@ -161,6 +156,7 @@ class Buyer {
 }
 
 public class BuyerMain {
+
     public static void main(String[] args) {
         Buyer s = new Buyer();
         s.insertMoney();
