@@ -123,15 +123,15 @@ class Buyer {
         }
     }
 
-    public void balance() {
+//    public void balance() {
 
-        int balance = money - totalPrice;
+//       int balance = money - totalPrice;
 //        if balance cukup untuk beli drink yang seterusnya no need to insertMoney()
 //        else 
 //        insertMoney();
 //        totalMoney= insertMoney()+balance;
 //        
-    }
+//    }
 
     public void cancelTransaction(Cart1 cart) {
         System.out.println("cancel your transaction?[yes/no]");

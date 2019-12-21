@@ -5,11 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+//import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,23 +26,17 @@ public class VendorStack extends BuyerMain{
 //    }
     
     
+    Scanner s = new Scanner(System.in);
+    Scanner a = new Scanner(System.in);
+    int maxSize = 20;
+    int top;
+    String arr[];
+    int i = 20;
+    int ans3;
     
-    VendorStack(int n) {
-        n=20;
-        maxSize = n;
-        top = 0;
+    
+ 
 
-        arr = new String[maxSize];
-    }
-       java.io.Console console = System.console();
-       Scanner s = new Scanner(System.in);
-       Scanner a = new Scanner(System.in);
-       int maxSize=20;
-       int top;
-       String arr[];
-       int i=20;
-       int ans3;
-        
        
        int plus = 20;
        int popci = 20;
@@ -54,7 +46,17 @@ public class VendorStack extends BuyerMain{
        int mailo = 20;
        int spright = 20;
        int legal = 20;
+       
+       
+    VendorStack(int n) {
+        maxSize = n;
+        top = 0;
+
+        arr = new String[maxSize];
+    }
   
+    
+    
     
     
     
@@ -131,6 +133,7 @@ public class VendorStack extends BuyerMain{
             }
             try {
                 PrintWriter outputStream = new PrintWriter(new FileOutputStream("data.txt"));
+                outputStream.println("izzan");
                 outputStream.close();
             } catch (IOException e) {
                 System.out.println("Problem with file output");
@@ -223,9 +226,11 @@ public class VendorStack extends BuyerMain{
              
              if(aa==1){
                  checkItem();
+                 proceed();
              }
              if(aa==2){
                  refill();
+                 proceed();
              }
              if(aa==4){
                  exit();
@@ -245,16 +250,17 @@ public class VendorStack extends BuyerMain{
          
     public void refill(){
              System.out.print("Do you want to refill item? [yes/no]: ");
-             String ans1 = a.nextLine();
+             String ans1 = a.next();
              if(ans1.equalsIgnoreCase("yes")){
                  System.out.print("Which item do you want to refill? : ");
-                 String ans2 = a.nextLine();
+                 String ans2 = a.next();
                  
                  if(ans2.equalsIgnoreCase("99plus")){
                      System.out.println("Enter quantity to refill: ");
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill 99plus...");
+                     plus++;
                      }
                      displayStack();
                  }
@@ -263,6 +269,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill Popci...");
+                     popci++;
                      }
                      displayStack();
                  }
@@ -271,6 +278,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill Hell&Sky...");
+                     hell++;
                      }
                      displayStack();
                  }
@@ -279,6 +287,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill Pikapoo...");
+                     pikapoo++;
                      }
                      displayStack();
                  }
@@ -287,6 +296,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill SkyJuice...");
+                     sky++;
                      }
                      displayStack();
                  }
@@ -295,6 +305,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill MAILO...");
+                     mailo++;
                      }
                      displayStack();
                  }
@@ -303,6 +314,7 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill Spright...");
+                     spright++;
                      }
                      displayStack();
                  }
@@ -311,101 +323,123 @@ public class VendorStack extends BuyerMain{
                      ans3 = a.nextInt();
                      for(int k=0;k<=ans3;k++){
                      push("Refill LegalCaffeine...");
-                     top++;
+                     legal++;
                      }
                      displayStack();
                  }
-                 else{
+                
+             }
+             if(ans1.equalsIgnoreCase("no")){
+                 proceed();
+                 
+             }
+              else{
                      System.out.println("Wrong input");
                      refill();
                  }
-             }
          }
-         
-         
+
     
     
-         
-         
-    public boolean isEmpty(){
-             if(top==0){
-                 return true;
-             }
-             else{
-                 return false;
-             }
-         }
-         
-         
-         
-         
-         
-         
-    public boolean isFull(){
-             if(top==maxSize){
-                 return true;
-             }
-             else{
-                 return false;
-             }
-         }
-         
-         
-         
-         
-         
-         
-    public void push(String select) {
-
-        if (top < maxSize) {
-
-            arr[top] = select;
-            top++;
-        } else {
-            System.out.println("Item is full");
+    
+    
+    
+    
+    
+    public void proceed(){
+        System.out.println("");
+        System.out.println("Do you want to proceed to another Transaction?[yes/no] : ");
+        String as1 = s.next();
+        if(as1.equalsIgnoreCase("yes")){
+            ask();
         }
-
+        if(as1.equalsIgnoreCase("no")){
+            exit();
+        }
+        else{
+            System.out.println("Wrong input");
+            proceed();
+        }
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+//    public boolean isEmpty(){
+//             if(top==0){
+//                 return true;
+//             }
+//             else{
+//                 return false;
+//             }
+//         }
+         
+         
+         
+         
+         
+         
+//    public void isFull(){
+//             if(top==maxSize){
+//                 System.out.println("Item is full");
+//             }
+//             else{
+//                 System.out.println("");
+//             }
+//         }
+         
+         
+         
+         
+         
+         
+//    public void push(String select) {
+//
+//        if (top < maxSize) {
+//
+//            arr[top] = select;
+//            top++;
+//        } else {
+//            System.out.println("Item is full");
+//        }
+//
+//    }
 
             
     
     
             
-    public void displayStack() {
-
-        if (isEmpty()) {
-            System.out.println("Item is empty");
-        } else {
-            for (int a =0; a<top-1; a++) {
-                System.out.println(arr[a]);
-            }
-        }
-
-    }
+//    public void displayStack() {
+//
+//        if (isEmpty()) {
+//            System.out.println("Item is empty");
+//        } else {
+//            for (int a =0; a<top-1; a++) {
+//                System.out.println(arr[a]);
+//            }
+//        }
+//
+//    }
     
     
-    
-    public void transactionHistory(){
-        Date date = new Date();
-        long time = date.getTime();
-        System.out.println("Time in Milliseconds: " + time);
-
-        Timestamp ts = new Timestamp(time);
-        System.out.println("Current Time Stamp: " + ts);
-    }
     
     
     
     public void exit(){
-        System.out.println("Do you want to exit?[yes/no]: ");
-        String ex = a.nextLine();
+        System.out.print("Do you want to exit?[yes/no]: ");
+        String ex = a.next();
         
         if(ex.equalsIgnoreCase("yes")){
             System.out.println("Thank you for using me~");
         }
         if(ex.equalsIgnoreCase("no")){
             System.out.println("Do you want to proceed to another transaction?[yes/no]: ");
-            String ex1 = a.nextLine();
+            String ex1 = a.next();
             
             if(ex1.equalsIgnoreCase("yes")){
                 System.out.println("");
@@ -431,6 +465,89 @@ public class VendorStack extends BuyerMain{
                     exit();
                 }
                 
+            }
+        }
+    }
+    
+
+    
+    
+    
+    
+    
+    
+
+    public boolean empty() {
+
+        if (top == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
+    
+    
+    
+
+    public void push(String str) {
+
+        if (top < maxSize) {
+
+            arr[top] = str;
+            top++;
+        } else {
+            System.out.println("Item is full");
+        }
+
+    }
+    
+    
+   
+    
+    
+    
+    
+    
+
+    public String peek() {
+        if (top > 0) {
+            return arr[top - 1];
+        } else {
+            return null;
+        }
+    }
+    
+    
+    
+    
+    
+
+    public void displayStack() {
+
+        if (empty()) {
+            System.out.println("Item is empty");
+        } else {
+            for (int i = 0; i < top-1; i++) {
+                System.out.println(arr[i]);
+            }
+        }
+
+    }
+    
+    
+    
+    
+    
+
+    public void reverseDisplay() {
+
+        if (empty()) {
+            System.out.println("Stack is empty");
+        } else {
+            for (int i = top - 1; i >= 0; i--) {
+                System.out.println(arr[i]);
             }
         }
     }

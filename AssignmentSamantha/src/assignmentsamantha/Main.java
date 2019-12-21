@@ -24,11 +24,13 @@ public class Main {
             c1.returnNum();
             by.confirmTransaction(cart);
             
+            
         }
         else if(ans.equalsIgnoreCase("vendor")){
             VendorStack vs = new VendorStack(20);
             vs.logIn();
             vs.ask();
+//            vs.transactionHistory();
         }
     }
     
