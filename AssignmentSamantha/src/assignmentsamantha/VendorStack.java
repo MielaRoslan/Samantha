@@ -8,6 +8,9 @@ import java.io.FileReader;
 //import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -425,6 +428,30 @@ public class VendorStack extends BuyerMain{
 //        }
 //
 //    }
+    
+    
+    
+    
+    public void transactionHistory(){
+        try{
+            PrintWriter outputStream = new PrintWriter(new FileOutputStream("Transaction History.txt",true));
+            Random r = new Random();
+            int id=r.nextInt(999999)+100000;
+            outputStream.println(id);
+            Date date = new Date();
+        long time = date.getTime();
+        outputStream.println("Time in Milliseconds: " + time);
+
+        Timestamp ts = new Timestamp(time);
+        outputStream.println("Current Time Stamp: " + ts);
+        outputStream.close(); 
+        }
+        catch(FileNotFoundException e){
+            System.out.println("Problem with file output");
+        }
+    }
+    
+    
     
     
     

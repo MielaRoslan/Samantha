@@ -12,6 +12,7 @@ public class Node {
     int drink;
     int quantity;
     double totalprice;
+    double totalAmount=0;
     Node next = null;
 
     Node(int drink, int quantity) {
@@ -23,7 +24,7 @@ public class Node {
     public int getDrink(){
         return drink;
     }
-    public void display() {
+    public double display() {
         if (drink == 1) {
             totalprice = 1.5 * quantity;
         } else if (drink == 2) {
@@ -41,7 +42,9 @@ public class Node {
         } else if (drink == 8) {
             totalprice = 2.0 * quantity;
         }
+        totalAmount=totalAmount+totalprice;
         System.out.println("drink: " + drink + " quantity: " + quantity +  " Total Price: " + totalprice);
+        System.out.println("Total Amount: "+totalAmount);
+        return totalAmount;
     }
-
 }

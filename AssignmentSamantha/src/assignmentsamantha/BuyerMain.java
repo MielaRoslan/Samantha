@@ -11,10 +11,11 @@ class Buyer {
     Scanner s = new Scanner(System.in);
     double totalMoney = 0;
 
-    public void insertMoney() {
+    public double insertMoney() {
         System.out.println("Insert money : ");
         money = s.nextDouble();
         displayCatalogue();
+        return money;
     }
 
     public void notEnoughMoney() {
@@ -123,15 +124,11 @@ class Buyer {
         }
     }
 
-//    public void balance() {
-
-//       int balance = money - totalPrice;
-//        if balance cukup untuk beli drink yang seterusnya no need to insertMoney()
-//        else 
-//        insertMoney();
-//        totalMoney= insertMoney()+balance;
-//        
-//    }
+    public void balance(int drink, int quantity){
+        Node node = new Node(drink,quantity);
+        double balance=node.display()-money;
+        System.out.println("Balance="+balance);
+    }
 
     public void cancelTransaction(Cart1 cart) {
         System.out.println("cancel your transaction?[yes/no]");

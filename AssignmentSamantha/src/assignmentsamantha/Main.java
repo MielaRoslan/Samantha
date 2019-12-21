@@ -15,13 +15,14 @@ public class Main {
                 System.out.print("Are you my Vendor or my Customer? : ");
         
         Scanner y = new Scanner(System.in);
-        String ans = y.next();
+        String ans = y.next();  
         if (ans.equalsIgnoreCase("customer")) {
             Buyer by = new Buyer();
             by.insertMoney();
             Cart1 cart = new Cart1();
             Counter c1 = new Counter();
             c1.returnNum();
+            by.balance(1, 1);
             by.confirmTransaction(cart);
             
             
