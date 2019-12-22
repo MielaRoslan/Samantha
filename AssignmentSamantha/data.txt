@@ -1,9 +1,9 @@
 Current Quantity is:
-99plus: -5
-Popci: 18
+99plus: 19
+Popci: 20
 Hell&Sky: 20
 Pikapoo: 20
-SkyJuice: -10
-MAILO: -62
+SkyJuice: 20
+MAILO: 18
 Spright: 20
-LegalCaffeine: 19
+LegalCaffeine: 20

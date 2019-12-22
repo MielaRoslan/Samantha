@@ -236,10 +236,6 @@ public class VendorStack extends Buyer{
                  exit();
              }
              
-             else{
-                 System.out.println("Wrong input");
-                 ask();
-             }
          }
          
          
@@ -350,19 +346,27 @@ public class VendorStack extends Buyer{
         System.out.println("");
         System.out.println("Do you want to proceed to another Transaction?[yes/no] : ");
         String as1 = s.next();
+        
         if(as1.equalsIgnoreCase("yes")){
             ask();
-        }
-        if(as1.equalsIgnoreCase("no")){
-            exit();
-        }
-        else{
-            System.out.println("Wrong input");
-            proceed();
+    }
+        else if(as1.equalsIgnoreCase("no")){
+            System.out.println("do you want to exit? [yes/no] ");
+            String as2 = s.next();
+            if(as2.equalsIgnoreCase("yes")){
+            exit();}
+            else if(as2.equalsIgnoreCase("no")){
+                ask();
+            
+            } else {
+                System.out.println("wrong input");
+                proceed();
         }
         
+        
+        
     }
-    
+    }
     
     
     
@@ -457,43 +461,20 @@ public class VendorStack extends Buyer{
     
     
     public void exit(){
-        System.out.print("Do you want to exit?[yes/no]: ");
-        String ex = a.next();
         
-        if(ex.equalsIgnoreCase("yes")){
-            System.out.println("Thank you for using me~");
+        System.out.print("Thank you for using me~");
+        
         }
-        if(ex.equalsIgnoreCase("no")){
-            System.out.println("Do you want to proceed to another transaction?[yes/no]: ");
-            String ex1 = a.next();
+    
+        
+       // if(ex.equalsIgnoreCase("no")){
+           // System.out.println("Do you want to proceed to another transaction?[yes/no]: ");
+           // String ex1 = a.next();
             
-            if(ex1.equalsIgnoreCase("yes")){
-                System.out.println("");
-                System.out.println("[1] Check Item Quantity");
-                System.out.println("[2] Refill Item");
-                System.out.println("[3] Print Transaction");
-                System.out.println("");
                 
-                
-                System.out.println("Select one: ");
-                int ex2 = a.nextInt();
-                if(ex2==1){
-                    checkItem();
-                }
-                if(ex2==2){
-                    ask();
-                }
-                if(ex2==3){
-                    //printTransaction();
-                }
-                else{
-                    System.out.println("Wrong input");
-                    exit();
-                }
-                
-            }
-        }
-    }
+            
+       
+    
     
 
     

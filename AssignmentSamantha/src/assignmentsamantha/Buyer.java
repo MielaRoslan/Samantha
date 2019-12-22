@@ -14,8 +14,9 @@ public class Buyer {
     public double insertMoney() {
         System.out.println("Insert money : ");
         money = s.nextDouble();
+        totalMoney = money;
         displayCatalogue();
-        return money;
+        return totalMoney;
     }
 
     public void notEnoughMoney() {
@@ -41,49 +42,20 @@ public class Buyer {
     public void displayCatalogue() {
         if (money < 1.00 && totalMoney < 1.00) {
             notEnoughMoney();
-        } else {
-            if (money >= 1.00 && money < 1.50) {
-                System.out.println("Select your drink:");
-                System.out.println("[5] SkyJuice\t\tRM 1.00\n");
-            }
-            if (money >= 1.50 && money < 2.00) {
-                System.out.println("Select your drink:");
-                System.out.println("[1] 99plus\t\tRM 1.50\n"
-                        + "[2] Popci\t\tRM 1.50\n"
-                        + "[4] Pikapoo\t\tRM 1.50\n"
-                        + "[5] SkyJuice\t\tRM 1.00\n"
-                        + "[7] Spright\t\tRM 1.50\n");
-            }
-            if (money >= 2.00 && money < 2.50) {
-                System.out.println("Select your drink:");
-                System.out.println("[1] 99plus\t\tRM 1.50\n"
-                        + "[2] Popci\t\tRM 1.50\n"
-                        + "[3] Hell&Sky\t\tRM 2.00\n"
-                        + "[4] Pikapoo\t\tRM 1.50\n"
-                        + "[5] SkyJuice\t\tRM 1.00\n"
-                        + "[7] Spright\t\tRM 1.50\n"
-                        + "[8] LegalCaffeine\tRM 2.00");
-            }
-            if (money >= 2.50) {
-                System.out.println("Select your drink:");
-                System.out.println("[1] 99plus\t\tRM 1.50\n"
-                        + "[2] Popci\t\tRM 1.50\n"
-                        + "[3] Hell&Sky\t\tRM 2.00\n"
-                        + "[4] Pikapoo\t\tRM 1.50\n"
-                        + "[5] SkyJuice\t\tRM 1.00\n"
-                        + "[6] MAILO\t\tRM 2.50\n"
-                        + "[7] Spright\t\tRM 1.50\n"
-                        + "[8] LegalCaffeine\tRM 2.00");
-            }
+        } 
+        else {
+            totalMoney();
         }
     }
 
     public void totalMoney() {
         if (totalMoney >= 1.00 && totalMoney < 1.50) {
+            System.out.println("\n*************");
             System.out.println("Select your drink:");
             System.out.println("[5] SkyJuice\t\tRM 1.00\n");
         }
         if (totalMoney >= 1.50 && totalMoney < 2.00) {
+            System.out.println("\n*************");
             System.out.println("Select your drink:");
             System.out.println("[1] 99plus\t\tRM 1.50\n"
                     + "[2] Popci\t\tRM 1.50\n"
@@ -92,6 +64,7 @@ public class Buyer {
                     + "[7] Spright\t\tRM 1.50\n");
         }
         if (totalMoney >= 2.00 && totalMoney < 2.50) {
+            System.out.println("\n*************");
             System.out.println("Select your drink:");
             System.out.println("[1] 99plus\t\tRM 1.50\n"
                     + "[2] Popci\t\tRM 1.50\n"
@@ -102,6 +75,7 @@ public class Buyer {
                     + "[8] LegalCaffeine\tRM 2.00");
         }
         if (totalMoney >= 2.50) {
+            System.out.println("\n*************");
             System.out.println("Select your drink:");
             System.out.println("[1] 99plus\t\tRM 1.50\n"
                     + "[2] Popci\t\tRM 1.50\n"
@@ -115,27 +89,25 @@ public class Buyer {
     }
 
     public void confirmTransaction(Cart1 cart) {
-        
-       
         System.out.println("Would you like to confirm your transaction? [yes/no]");
         String answer = s.next();
         if (answer.equals("yes")) { 
-            if(money < cart.getTotalAmount()){
-                    System.out.println("Transaction error not enough money ");
-                    System.out.println("Here is your money :RM " + money);
-                             }else{
-            System.out.println("Thank you! Have a nice day~");
+            if(totalMoney < cart.getTotalAmount()){
+                System.out.println("Transaction error not enough money ");
+                System.out.println("Here is your money :RM " + totalMoney);
             }
-        } else {
+            else {
+                System.out.println("Thank you! Have a nice day~");
+            }
+        } 
+        else {
             cancelTransaction(cart);
         }
     }
 
     //get the amount of money left after bought drinks
    public void balance(Cart1 cart){
-        
-        double balance = money - cart.getTotalAmount();
-        
+        double balance = totalMoney - cart.getTotalAmount();
         System.out.println("Balance: " + balance);
     }
 
@@ -160,5 +132,3 @@ public class Buyer {
         }
     }
 }
-
-
