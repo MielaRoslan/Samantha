@@ -124,10 +124,12 @@ class Buyer {
         }
     }
 
-    public void balance(int drink, int quantity){
-        Node node = new Node(drink,quantity);
-        double balance=node.display()-money;
-        System.out.println("Balance="+balance);
+    //get the amount of money left after bought drinks
+    public void balance(Cart1 cart){
+        
+        double balance = money - cart.getTotalAmount();
+        
+        System.out.println("Balance: " + balance);
     }
 
     public void cancelTransaction(Cart1 cart) {

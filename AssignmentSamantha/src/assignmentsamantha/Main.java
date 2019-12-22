@@ -19,10 +19,12 @@ public class Main {
         if (ans.equalsIgnoreCase("customer")) {
             Buyer by = new Buyer();
             by.insertMoney();
-            Cart1 cart = new Cart1();
+            VendorStack vs = new VendorStack(20);
+            vs.transactionHistory();
             Counter c1 = new Counter();
-            c1.returnNum();
-            by.balance(1, 1);
+            Cart1 cart = c1.returnNum();
+            //display balance
+            
             by.confirmTransaction(cart);
             
             

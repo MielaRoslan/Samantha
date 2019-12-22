@@ -25,11 +25,15 @@ public class Counter {
     int spright;
     int legal;
     
+    Cart1 cart;
+    
     Counter() {
         try {
             //this is constructor
             // code ni jgn delete
             // format dekat txt file jgn ubah
+            cart = new Cart1();
+            
             BufferedReader br = new BufferedReader(new FileReader("data.txt"));
             String line = "";
             
@@ -68,7 +72,6 @@ public class Counter {
     }
 
     public void counter() {
-        Cart1 cart = new Cart1();
 
         Scanner a = new Scanner(System.in);
         System.out.println("How many flavours you want? ");
@@ -81,6 +84,8 @@ public class Counter {
             int quantity = a.nextInt();
 
             cart.addNode(drink, quantity);
+            
+            //display the cart amount
             cart.display();
 
             if (drink == 1) {
@@ -118,7 +123,7 @@ public class Counter {
         }
     }
 
-    public void returnNum() {
+    public Cart1 returnNum() {
         counter();
         try {
             PrintWriter outputStream = new PrintWriter(new FileOutputStream("data.txt"));
@@ -136,6 +141,8 @@ public class Counter {
         } catch (IOException e) {
             System.out.println("Problem with file output");
         }
+        
+        return cart;
     }
 
     public void refillQuantity() {

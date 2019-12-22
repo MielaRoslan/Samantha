@@ -14,12 +14,16 @@ import java.util.Scanner;
 public class Cart1 {
 
     public Node head;
+    
+    double totalAmount = 0;
 
     public void addNode(int drink, int quantity) {
         //int drink, quantity;
         Node node = new Node(drink, quantity);
 
         Node currentNode = head;
+        
+        
         if (head == null) {
             head = node;
 
@@ -32,6 +36,8 @@ public class Cart1 {
             currentNode.next = node;
 
         }
+        
+        totalAmount += node.getTotalPrice();
     }
     
     public Node removeNode(int drinkDiscard){
@@ -80,13 +86,25 @@ public class Cart1 {
         }
         return current;*/
     }
+    
+    public double getTotalAmount(){
+        return totalAmount;
+    }
 
     public void display() {
         Node node = head;
 
+        //try to print in receipt format
+        System.out.println("========== Current Receipt =======");
+        System.out.println("DrinkType          Quantity          Price");
         while (node != null) {
-            node.display();
+            System.out.println("");
+            System.out.printf("   %d                %d                %.2f\n", node.getDrink(), node.getQuantity(), node.getTotalPrice());
             node = node.next;
         }
+        
+        System.out.println("");
+        System.out.println("Total Amount: " + totalAmount);
+        System.out.println("==================================");
     }
 }
