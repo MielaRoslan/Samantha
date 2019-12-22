@@ -115,17 +115,24 @@ class Buyer {
     }
 
     public void confirmTransaction(Cart1 cart) {
+        
+       
         System.out.println("Would you like to confirm your transaction? [yes/no]");
         String answer = s.next();
-        if (answer.equals("yes")) {
+        if (answer.equals("yes")) { 
+            if(money < cart.getTotalAmount()){
+                    System.out.println("Transaction error not enough money ");
+                    System.out.println("Here is your money : RM" + money);
+                             }else{
             System.out.println("Thank you! Have a nice day~");
+            }
         } else {
             cancelTransaction(cart);
         }
     }
 
     //get the amount of money left after bought drinks
-    public void balance(Cart1 cart){
+   public void balance(Cart1 cart){
         
         double balance = money - cart.getTotalAmount();
         

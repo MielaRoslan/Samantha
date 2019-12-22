@@ -31,7 +31,7 @@ public class VendorStack extends BuyerMain{
     
     Scanner s = new Scanner(System.in);
     Scanner a = new Scanner(System.in);
-    int maxSize = 20;
+    int maxSize;
     int top;
     String arr[];
     int i = 20;
@@ -54,7 +54,6 @@ public class VendorStack extends BuyerMain{
     VendorStack(int n) {
         maxSize = n;
         top = 0;
-
         arr = new String[maxSize];
     }
   
