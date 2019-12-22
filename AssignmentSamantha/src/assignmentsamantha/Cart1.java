@@ -5,6 +5,8 @@
  */
 package assignmentsamantha;
 
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -106,5 +108,23 @@ public class Cart1 {
         System.out.println("");
         System.out.println("Total Amount: " + totalAmount);
         System.out.println("==================================");
+        
+        try{
+            PrintWriter outputStream = new PrintWriter(new FileOutputStream("Transaction History.txt",true));
+            outputStream.println("========== Current Receipt =======");
+            outputStream.println("DrinkType          Quantity          Price");
+            while (node != null) {
+            outputStream.println("");
+            outputStream.printf("   %d                %d                %.2f\n", node.getDrink(), node.getQuantity(), node.getTotalPrice());
+            node = node.next;
+        }
+        
+        outputStream.println("");
+        outputStream.println("Total Amount: " + totalAmount);
+        outputStream.println("==================================");
+        }catch(Exception e){
+            System.out.println("File problem");
+        }
+        
     }
 }

@@ -154,15 +154,4 @@ class Buyer {
     }
 }
 
-public class BuyerMain {
 
-    public static void main(String[] args) {
-        Buyer s = new Buyer();
-        s.insertMoney();
-        Cart1 cart = new Cart1();
-        Counter c1 = new Counter();
-        c1.returnNum();
-//        cart.display();
-        s.confirmTransaction(cart);
-    }
-}

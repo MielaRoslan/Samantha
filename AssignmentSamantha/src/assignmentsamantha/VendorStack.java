@@ -97,7 +97,9 @@ public class VendorStack extends BuyerMain{
         Cart1 cart = new Cart1();
 
         Scanner a = new Scanner(System.in);
-        System.out.println("How many flavours you want? ");
+        try{
+            PrintWriter outputStream = new PrintWriter(new FileOutputStream("Transaction History",true));
+            System.out.println("How many flavours you want? ");
         int berapa = a.nextInt();
         for (int i = 1; i <= berapa; i++) {
 
@@ -105,10 +107,10 @@ public class VendorStack extends BuyerMain{
             int drink = a.nextInt();
             System.out.println("quantity: ");
             int quantity = a.nextInt();
-
+            
             cart.addNode(drink, quantity);
             cart.display();
-
+            
             if (drink == 1) {
                 plus = plus - quantity;
             }
@@ -134,14 +136,10 @@ public class VendorStack extends BuyerMain{
             if (drink == 8) {
                 legal = legal - quantity;
             }
-            try {
-                PrintWriter outputStream = new PrintWriter(new FileOutputStream("data.txt"));
-                outputStream.println("izzan");
-                outputStream.close();
-            } catch (IOException e) {
-                System.out.println("Problem with file output");
-            }
         }
+        }catch (IOException e) {
+                System.out.println("Problem with file output");
+            }       
     }
     
     
@@ -431,19 +429,21 @@ public class VendorStack extends BuyerMain{
     
     
     
-    
+    //print transaction id,timestamp,
     public void transactionHistory(){
         try{
             PrintWriter outputStream = new PrintWriter(new FileOutputStream("Transaction History.txt",true));
             Random r = new Random();
             int id=r.nextInt(999999)+100000;
             outputStream.println(id);
+            
             Date date = new Date();
         long time = date.getTime();
         outputStream.println("Time in Milliseconds: " + time);
 
         Timestamp ts = new Timestamp(time);
         outputStream.println("Current Time Stamp: " + ts);
+        outputStream.println();
         outputStream.close(); 
         }
         catch(FileNotFoundException e){

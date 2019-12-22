@@ -19,14 +19,17 @@ public class Main {
         if (ans.equalsIgnoreCase("customer")) {
             Buyer by = new Buyer();
             by.insertMoney();
-            VendorStack vs = new VendorStack(20);
-            vs.transactionHistory();
+            
             Counter c1 = new Counter();
             Cart1 cart = c1.returnNum();
             //display balance
+            by.balance(cart);
             
             by.confirmTransaction(cart);
             
+            VendorStack vs = new VendorStack(20);
+            vs.transactionHistory();
+          
             
         }
         else if(ans.equalsIgnoreCase("vendor")){
