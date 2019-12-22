@@ -2,7 +2,7 @@ package assignmentsamantha;
 
 import java.util.Scanner;
 
-class Buyer {
+public class Buyer {
 
     int head;
     int tail;
@@ -122,7 +122,7 @@ class Buyer {
         if (answer.equals("yes")) { 
             if(money < cart.getTotalAmount()){
                     System.out.println("Transaction error not enough money ");
-                    System.out.println("Here is your money : RM" + money);
+                    System.out.println("Here is your money :RM " + money);
                              }else{
             System.out.println("Thank you! Have a nice day~");
             }

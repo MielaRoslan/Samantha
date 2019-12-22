@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class VendorStack extends BuyerMain{
+public class VendorStack extends Buyer{
 //
 //    public static void main(String[] args) {
 //
@@ -51,7 +51,7 @@ public class VendorStack extends BuyerMain{
        int legal = 20;
        
        
-    VendorStack(int n) {
+    public VendorStack(int n) {
         maxSize = n;
         top = 0;
         arr = new String[maxSize];
